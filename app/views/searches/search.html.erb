@@ -1,0 +1,12 @@
+<% if @range == "User" %>
+  <% @users.each do |user| %>
+    <%= link_to attachment_image_tag(user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60"), "/users/#{user.id}" %>
+    <%= user.name %>
+  <% end %>
+<% else %>
+  <% @books.each do |book| %>
+    <%= link_to attachment_image_tag(book.user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "60x60"), "/users/#{book.user.id}" %>
+    <%= book.title %>
+    <%= book.body %>
+  <% end %>
+<% end %>

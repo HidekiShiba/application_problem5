@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'search' => "searches#search"
   post 'follow/:id' => 'relationships#follow', as: 'follow' # フォローする
   post 'unfollow/:id' => 'relationships#unfollow', as: 'unfollow' # フォロー外す
 
@@ -16,4 +17,5 @@ Rails.application.routes.draw do
     resources :book_comments, only: [:create, :destroy]
     resource :favorites, only: [:create, :destroy]
   end
+
 end
